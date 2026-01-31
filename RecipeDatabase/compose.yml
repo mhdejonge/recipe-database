@@ -1,0 +1,23 @@
+name: dejonge-recipe-database
+services:
+  server:
+    image: dejonge/server
+    build: ./web.api
+    restart: unless-stopped
+    ports:
+      - "8081:8080"
+  client:
+    image: dejonge/client
+    build: ./client.app
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+  database:
+    image: mongodb/mongodb-community-server:latest
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    volumes:
+      - type: bind
+        source: ./recipes
+        target: /data/db

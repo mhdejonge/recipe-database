@@ -1,14 +1,18 @@
 name: dejonge-recipe-database
 services:
   server:
-    image: dejonge/server
-    build: ./web.api
+    image: dejonge-server
+    build:
+      context: .
+      dockerfile: web.api
     restart: unless-stopped
     ports:
       - "8081:8080"
   client:
-    image: dejonge/client
-    build: ./client.app
+    image: dejonge-client
+    build:
+      context: .
+      dockerfile: client.app
     restart: unless-stopped
     ports:
       - "8080:8080"

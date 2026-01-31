@@ -1,7 +1,6 @@
-﻿using System.Data;
+﻿namespace Domain;
 
-namespace Domain;
-
+using System.Data;
 using ExcelDataReader;
 
 public class ImportService(Database database)

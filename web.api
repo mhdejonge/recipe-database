@@ -1,12 +1,12 @@
 # BUILD
-FROM mcr.microsoft.com/dotnet/sdk:9.0-alpine AS build
+FROM mcr.microsoft.com/dotnet/sdk:10.0-alpine AS build
 WORKDIR /app
-COPY domain .
-COPY web .
-RUN dotnet publish Web/Web.csproj --configuration Release --runtime linux-musl-x64 --no-self-contained --output publish
+COPY domain domain
+COPY web web
+RUN dotnet publish web/Web.csproj --configuration Release --runtime linux-musl-x64 --no-self-contained --output publish
 
 # RUN
-FROM mcr.microsoft.com/dotnet/aspnet:9.0-alpine
+FROM mcr.microsoft.com/dotnet/aspnet:10.0-alpine
 RUN apk add --no-cache icu-libs icu-data-full tzdata && \
     cp /usr/share/zoneinfo/America/New_York /etc/localtime
 ENV LANG=en_US.UTF-8

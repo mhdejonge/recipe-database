@@ -8,10 +8,10 @@ public class Database
 {
     private readonly IMongoCollection<Recipe> _collection;
 
-    public Database(string databaseName, string collectionName)
+    public Database(Configuration configuration)
     {
-        var database = new MongoClient().GetDatabase(databaseName);
-        _collection = database.GetCollection<Recipe>(collectionName);
+        var database = new MongoClient(configuration.ConnectionString).GetDatabase(configuration.DatabaseName);
+        _collection = database.GetCollection<Recipe>(configuration.CollectionName);
     }
 
     public Task<List<Recipe>> GetRecipes(RecipeSearch? search)

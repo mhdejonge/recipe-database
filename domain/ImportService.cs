@@ -16,13 +16,17 @@ public class ImportService(Database database)
             recipes.Add(new Recipe
             {
                 Name = row["Name"].ToString()!,
-                Ingredients = row["Ingredients"].ToString(),
+                Ingredients = CommaSplit(row["Ingredients"].ToString()),
                 Instructions = row["Instructions"].ToString(),
-                MealType = Enum.Parse<MealType>(row["MealType"].ToString()!),
-                Tags = row["Tags"].ToString()?.Trim().Split(',', StringSplitOptions.RemoveEmptyEntries).Select(tag => tag.Trim()).ToList(),
+                Tags = CommaSplit(row["Tags"].ToString()),
                 Source = row["Source"].ToString()
             });
         }
         await database.InsertRecipes(recipes);
+    }
+
+    private static List<string>? CommaSplit(string? column)
+    {
+        return string.IsNullOrEmpty(column) ? null : [..column.Split(',', StringSplitOptions.RemoveEmptyEntries).Select(tag => tag.Trim())];
     }
 }

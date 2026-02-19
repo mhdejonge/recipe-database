@@ -1,0 +1,37 @@
+body {
+	font-size: 10pt;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	text-align: center;
+	color: black;
+	line-height: 14pt;
+	padding-left: 5pt;
+	padding-right: 5pt;
+	padding-top: 5pt;
+	background-color: #5170ff;	
+	background-image: url('Home background.jpg');
+	background-repeat: no-repeat;
+	background-position: center;
+	height: 100vh;
+}
+	
+
+h1 {
+	font-size: 45pt;	
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	text-align: center;
+}
+
+h2 {
+	font-size: 32pt;	
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	text-align: center;
+}
+
+div.background {
+	padding: 15px;
+	border: black; 
+	background-color: rgba(81, 112, 255, 0.5);
+}
+
+
+p

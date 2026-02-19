@@ -6,3 +6,5 @@ obj/
 packages/
 node_modules/
 dist/
+
+client/desktop.ini

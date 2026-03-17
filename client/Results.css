@@ -31,10 +31,38 @@ div.background {
 	padding: 15px;
 	border: black; 
 	background-color: rgba(81, 112, 255, 0.5);
+	display: flex;
+	justify-content: center;
+	width: 100%;
 }
 
+div.centercontent {
+	display: flex;
+	justify-content: center;
+}
 
+div.transbox {
+	margin-top:20px;
+	width:800px;
+	background-color: rgba(255, 255, 255, 0.6);
+	border: 1px solid black;
+	justify-content: center;
+}
 
+div.transbox p {
+	font-weight: bold;
+	color: #000000;
+}
+
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 10px;
+}
+
+ul li {
+	margin: 10px;
+}
 
 	
 

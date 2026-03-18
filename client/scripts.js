@@ -20,17 +20,19 @@ function tag(value) {
 }
 
 function updateSearchUrl() {
-  const searchBar = document.getElementById('search-bar');
+  const searchText = document.getElementById('search-bar')?.value?.trim();
   const resultsUrl = new URL(`${CLIENT_BASE}/results.html`);
-  resultsUrl.searchParams.append('search', searchBar.value);
-  tags.forEach(tag => resultsUrl.searchParams.append('tag', tag));
+  if (searchText) {
+    resultsUrl.searchParams.append('search', searchText);
+  }
+  tags.forEach(tag => resultsUrl.searchParams.append('tags', tag));
   document.getElementById('search-results').href = resultsUrl.href;
 }
 
 function getResults() {
   const currentUrl = new URL(location.href);
   const apiUrl = new URL(`${API_BASE}/api/recipe`);
-  apiUrl.searchParams = currentUrl.searchParams;
+  apiUrl.search = currentUrl.search;
   fetch(apiUrl).then(result => result.json()).then(data => {
     const results = document.getElementById('results-list');
     if (data.length) {

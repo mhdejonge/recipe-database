@@ -9,19 +9,22 @@ body {
 	background-color: #5170ff;	
 	background-position: left;
 	height: 100vh;
+	column-count: 2;
 }
 	
 
 h1 {
-	font-size: 14pt;	
+	font-size: 20pt;	
 	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
 	text-align: center;
+	color: black;
 }
 
 h2 {
 	font-size: 12pt;	
 	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
 	text-align: center;
+	line-height: 20pt;
 }
 
 div.background {
@@ -33,10 +36,9 @@ div.background {
 	width: 100%;
 }
 
-.recipe {
-	column-count: 2;
+div.recipe {
+	line-height: 30pt;
 	column-width: 100px;
-	text-align: center;
+	text-align: left;
 	display: flex;
 }
-

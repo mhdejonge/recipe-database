@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html lang="en-US">
 
 <head>
   <title>DeJonge Recipes</title>
@@ -7,34 +7,35 @@
 </head>
 
 <body>
-  <script src="scripts.js" defer></script>
-  <div class="background">
-    <h1>DeJonge House Recipes</h1>
-    <div class="topnav">
-      <input id="search-bar" type="text" placeholder="Search..." class="search-bar">
-    </div>
-    <h2>What's on the Menu</h2>
-    <div class="dropdown">
-      <button class="dropbtn"> Main Course </button>
-      <div class="dropdown-content">
-        <a href="#">Chicken</a>
-        <a href="#">Beef</a>
-        <a href="#">Pork</a>
-        <a href="#">Pasta</a>
-        <a href="#">Soup</a>
-        <a href="#">Sides & Dips</a>
-      </div>
-    </div>
-    <div class="dropdown">
-      <button class="dropbtn"> Time of Day </button>
-      <div class="dropdown-content">
-        <a href="#">Breakfast</a>
-        <a href="#">Lunch</a>
-        <a href="#">Dinner</a>
-      </div>
-    </div>
-
+<script src="scripts.js" defer></script>
+<div class="background">
+  <h1>DeJonge House Recipes</h1>
+  <div class="topnav">
+    <input id="search-bar" type="text" placeholder="Search..." class="search-bar" onchange="updateSearchUrl()">
   </div>
+  <h2>What's on the Menu</h2>
+  <div class="dropdown">
+    <button class="dropbtn"> Main Course</button>
+    <div class="dropdown-content">
+      <a href="javascript:tag('Chicken')">Chicken</a>
+      <a href="javascript:tag('Beef')">Beef</a>
+      <a href="javascript:tag('Pork')">Pork</a>
+      <a href="javascript:tag('Pasta')">Pasta</a>
+      <a href="javascript:tag('Soup')">Soup</a>
+      <a href="javascript:tag('Sides & Dips')">Sides & Dips</a>
+    </div>
+  </div>
+  <div class="dropdown">
+    <button class="dropbtn"> Time of Day</button>
+    <div class="dropdown-content">
+      <a href="javascript:tag('Breakfast')">Breakfast</a>
+      <a href="javascript:tag('Lunch')">Lunch</a>
+      <a href="javascript:tag('Dinner')">Dinner</a>
+    </div>
+  </div>
+  <br/>
+  <a id="search-results" class="search-button" href="#">Search</a>
+</div>
 </body>
 
 </html>

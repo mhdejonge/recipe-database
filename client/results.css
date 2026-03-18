@@ -7,29 +7,29 @@ body {
 	padding-left: 5pt;
 	padding-right: 5pt;
 	padding-top: 5pt;
-	background-color: #5170ff;	
-	background-image: url('Results background.jpg');
+	background-color: #5170ff;
+	background-image: url('results-background.jpg');
 	background-repeat: no-repeat;
 	background-position: center;
 	height: 100vh;
 }
-	
+
 
 h1 {
-	font-size: 45pt;	
+	font-size: 45pt;
 	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
 	text-align: center;
 }
 
 h2 {
-	font-size: 32pt;	
+	font-size: 32pt;
 	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
 	text-align: center;
 }
 
 div.background {
 	padding: 15px;
-	border: black; 
+	border: black;
 	background-color: rgba(81, 112, 255, 0.5);
 	display: flex;
 	justify-content: center;
@@ -64,6 +64,6 @@ ul li {
 	margin: 10px;
 }
 
-	
+
 
 

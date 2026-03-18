@@ -8,7 +8,7 @@ body {
   padding-right: 5pt;
   padding-top: 5pt;
   background-color: #5170ff;
-  background-image: url('Home background.jpg');
+  background-image: url('home-background.jpg');
   background-repeat: no-repeat;
   background-position: center;
   height: 100vh;
@@ -35,6 +35,17 @@ div.background {
 .search-bar {
   font-size: larger;
   padding: 10px;
+}
+
+.search-button {
+  font-size: larger;
+  padding: 20px;
+  margin-top: 50px;
+  color: #252525;
+  background-color: #f1f1f1;
+  border-radius: 10px;
+  position: relative;
+  top: 200px;
 }
 
 .dropbtn {

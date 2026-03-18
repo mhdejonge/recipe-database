@@ -15,7 +15,7 @@ services:
     ports:
       - "8080:8080"
   database:
-    image: mongodb/mongodb-community-server:latest
+    image: mongodb/mongodb-community-server:8.0-ubi9-slim
     restart: unless-stopped
     ports:
       - "27017:27017"

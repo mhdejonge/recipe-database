@@ -33,10 +33,16 @@ function getResults() {
   apiUrl.searchParams = currentUrl.searchParams;
   fetch(apiUrl).then(result => result.json()).then(data => {
     const results = document.getElementById('results-list');
-    data.forEach(item => {
+    if (data.length) {
+      data.forEach(item => {
+        const li = document.createElement('li');
+        li.textContent = item.name;
+        results.append(li);
+      });
+    } else {
       const li = document.createElement('li');
-      li.textContent = item.name;
+      li.textContent = 'No results found';
       results.append(li);
-    });
+    }
   });
 }

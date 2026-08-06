@@ -1,5 +1,4 @@
-const CLIENT_BASE = `${window.location.protocol}//${window.location.hostname}:8080`;
-const API_BASE = `${window.location.protocol}//${window.location.hostname}:8081`;
+const SITE_BASE_URL = window.location.origin + '/recipe-database';
 
 window.onload = () => {
   const page = document.getElementById('page');
@@ -21,7 +20,7 @@ function tag(value) {
 
 function updateSearchUrl() {
   const searchText = document.getElementById('search-bar')?.value?.trim();
-  const resultsUrl = new URL(`${CLIENT_BASE}/results.html`);
+  const resultsUrl = new URL(`${SITE_BASE_URL}/results.html`);
   if (searchText) {
     resultsUrl.searchParams.append('search', searchText);
   }
@@ -29,14 +28,28 @@ function updateSearchUrl() {
   document.getElementById('search-results').href = resultsUrl.href;
 }
 
-function getResults() {
+function searchRecipes(recipes) {
   const currentUrl = new URL(location.href);
-  const apiUrl = new URL(`${API_BASE}/api/recipe`);
-  apiUrl.search = currentUrl.search;
-  fetch(apiUrl).then(result => result.json()).then(data => {
+  const search = currentUrl.searchParams.get('search');
+  const tags = currentUrl.searchParams.getAll('tags');
+  if (!search && !tags.length) {
+    return recipes;
+  }
+  if (search) {
+    recipes = recipes.filter(recipe => recipe.name.toLowerCase().search(new RegExp(`.*${search}.*`, 'i')));
+  }
+  if (tags.length) {
+    recipes = recipes.filter(recipe => recipe.tags.some(tag => tags.includes(tag)));
+  }
+  return recipes;
+}
+
+function getResults() {
+  fetch(`${SITE_BASE_URL}/recipes.json`).then(result => result.json()).then(recipes => {
+    recipes = searchRecipes(recipes);
     const results = document.getElementById('results-list');
-    if (data.length) {
-      data.forEach(item => {
+    if (recipes.length) {
+      recipes.forEach(item => {
         const li = document.createElement('li');
         li.textContent = item.name;
         results.append(li);
